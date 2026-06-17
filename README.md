@@ -44,4 +44,4 @@ Application fullstack de gestion d'étudiants.
 | DELETE | /api/students/{id} | Supprimer un étudiant |
 
 ## Auteur
-Noé Thierry Tchikpo — Étudiant ingénieur ESEO Angers
+Noé Thierry Tchikpo - Étudiant ingénieur ESEO Angers
