@@ -1,73 +1,47 @@
-# React + TypeScript + Vite
+# Students App - Fullstack Java Spring Boot + React TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Application fullstack de gestion d'étudiants.
 
-Currently, two official plugins are available:
+## Technologies
+### Backend
+- Java 17
+- Spring Boot 4.1
+- Spring Data JPA / Hibernate
+- PostgreSQL
+- Maven
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Frontend
+- React 19
+- TypeScript
+- Vite
+- Axios
 
-## React Compiler
+## Fonctionnalités
+- Afficher la liste des étudiants
+- Ajouter un étudiant
+- Modifier un étudiant
+- Supprimer un étudiant
+- Recherche par nom
+- Validation des données
+- Gestion des erreurs HTTP (400, 404, 204)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Architecture Backend
+| Couche | Fichier | Rôle |
+|--------|---------|------|
+| Controller | StudentController.java | Routes HTTP REST |
+| Service | StudentService.java | Logique métier |
+| Repository | StudentRepository.java | Accès base de données |
+| Entity | Student.java | Modèle de données |
 
-## Expanding the ESLint configuration
+## Endpoints API
+| Méthode | Route | Description |
+|---------|-------|-------------|
+| GET | /api/students | Tous les étudiants |
+| GET | /api/students/{id} | Étudiant par id |
+| GET | /api/students/search?nom= | Recherche par nom |
+| POST | /api/students | Ajouter un étudiant |
+| PUT | /api/students/{id} | Modifier un étudiant |
+| DELETE | /api/students/{id} | Supprimer un étudiant |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Auteur
+Noé Thierry Tchikpo — Étudiant ingénieur ESEO Angers
